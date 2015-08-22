@@ -1,0 +1,83 @@
+@mixin trans($speed) {
+  -webkit-transition: all $speed cubic-bezier(0.2,0.75,0.8,0.95);
+     -moz-transition: all $speed cubic-bezier(0.2,0.75,0.8,0.95);
+      -ms-transition: all $speed cubic-bezier(0.2,0.75,0.8,0.95);
+       -o-transition: all $speed cubic-bezier(0.2,0.75,0.8,0.95);
+          transition: all $speed cubic-bezier(0.2,0.75,0.8,0.95);
+}
+
+@mixin origin($left, $top) {
+  -webkit-transform-origin: $left $top;
+  -moz-transform-origin: $left $top;
+  -ms-transform-origin: $left $top;
+  -o-transform-origin: $left $top;
+  transform-origin: $left $top;
+}
+
+@mixin border($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin noSelect() {
+	-webkit-touch-callout: none;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+}
+
+@mixin spinAnim($name, $from, $middle, $to) {
+  @-webkit-keyframes $name {
+    0% {
+      transform: rotate($from);
+    }
+    50% {
+      transform: rotate($middle);
+    }
+    100% {
+      transform: rotate($to);
+    }
+  }
+  @-moz-keyframes $name {
+    0% {
+      transform: rotate($from);
+    }
+    50% {
+      transform: rotate($middle);
+    }
+    100% {
+      transform: rotate($to);
+    }
+  }
+  @-o-keyframes $name {
+    0% {
+      transform: rotate($from);
+    }
+    50% {
+      transform: rotate($middle);
+    }
+    100% {
+      transform: rotate($to);
+    }
+  }
+  @keyframes $name {
+    0% {
+      transform: rotate($from);
+    }
+    50% {
+      transform: rotate($middle);
+    }
+    100% {
+      transform: rotate($to);
+    }
+  }
+}
+
+// Container Width Variables
+$fullWidth: 1010px;
+$containerWidth: 490px;
+

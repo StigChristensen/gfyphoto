@@ -1,0 +1,13 @@
+@import 'partials/reset';
+@import 'partials/colors';
+@import 'partials/mixins';
+@import 'partials/typography';
+@import 'partials/frontpage';
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+}
