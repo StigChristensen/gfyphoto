@@ -14,19 +14,52 @@
 	<div class="bar bottom"></div>
 	<div class="bar left"></div>
 
-	<?php while ( have_posts() ) : the_post(); ?>
-
-		<div class="img-container small">
-			<img src="<?php the_field('billede'); ?>">
-		</div>
-
-	<?php endwhile; ?>
-
 	<div class="info">
-		<h2>Matias Jensen</h2>
-		<a href="tel:25145943"><h4>25 14 59 43</h4></a>
+		<p>Matias Jensen | Fotograf | <a href="tel:25145943">25 14 59 43</a> | <a href="mailto:matias@mail.com">matias@mail.com</a></p>
 	</div>
 
+
+	<div class="overlay"></div>
+
+	<div class="images-cont">
+	<?php
+	$posts = get_posts(array(
+		'posts_per_page'	=> -1,
+		'post_type'				=> 'billede',
+		'orderby'					=> 'title',
+		'order'						=> 'ASC'
+		));
+
+	if( $posts ):
+	foreach( $posts as $post ):
+		setup_postdata( $post ) ?>
+
+		<div class="img-container">
+			<img class="child" src="<?php the_field('billede'); ?>">
+
+			<?php if ( get_field('3d') && get_field('3d_billede') ) { ?>
+				<div class="threed-btn"><h3 class="threetxt">3D</h3></div>
+				<div class="img-3d">
+					<img src="<?php the_field('3d_billede'); ?>">
+				</div>
+			<?php } ?>
+		</div>
+
+	<?php endforeach;
+
+		wp_reset_postdata(); ?>
+
+<?php endif; ?>
+
+	<div class="vid-container">
+		<iframe width="1000" height="562" src="https://www.youtube.com/embed/ZS-xHv4Bno8?autoplay=1?rel=0" frameborder="0" allowfullscreen></iframe>
+	</div>
+
+	</div>
+
+	<div class="info">
+		<p>Matias Jensen | Fotograf | <a href="tel:25145943">25 14 59 43</a> | <a href="mailto:matias@mail.com">matias@mail.com</a></p>
+	</div>
 
 	</div>
 

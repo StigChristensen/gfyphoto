@@ -15,7 +15,7 @@ function create_episode() {
 		array( 'labels' => array(
 			'name' => 'Billede', /* This is the Title of the Group */
 			'singular_name' => 'Billede', /* This is the individual type */
-			'all_items' => 'Alle Billede', /* the all items menu item */
+			'all_items' => 'Alle Billeder', /* the all items menu item */
 			'add_new' => 'Tilføj nyt', /* The add new menu item */
 			'add_new_item' => 'Tilføj nyt Billede', /* Add New Display Title */
 			'edit' => 'Rediger', /* Edit Dialog */

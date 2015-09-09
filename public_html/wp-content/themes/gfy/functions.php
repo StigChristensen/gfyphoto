@@ -15,22 +15,21 @@ function wd_setup() {
 endif;
 add_action( 'after_setup_theme', 'wd_setup' );
 
-function add_my_post_types_to_query( $query ) {
-  if ( is_home() && $query->is_main_query() )
-    $query->set( 'post_type', array('page', 'billede' ) );
-  return $query;
-}
-add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
+// function add_my_post_types_to_query( $query ) {
+//   if ( is_home() && $query->is_main_query() )
+//     $query->set( 'post_type', array('page', 'billede' ) );
+//   return $query;
+// }
+// add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
 
 // Remove unwanted Menu Items in Admin.
-function remove_menus(){
-  remove_menu_page( 'edit.php' );                   //Posts
-  // remove_menu_page( 'edit.php?post_type=page' );    //Pages
-  remove_menu_page( 'edit-comments.php' );          //Comments
-  remove_menu_page( 'users.php' );                  //Users
-  remove_menu_page( 'tools.php' );                  //Tools
-}
-add_action( 'admin_menu', 'remove_menus' );
+// function remove_menus(){
+//   remove_menu_page( 'edit.php' );                   //Posts
+//   remove_menu_page( 'edit-comments.php' );          //Comments
+//   remove_menu_page( 'users.php' );                  //Users
+//   remove_menu_page( 'tools.php' );                  //Tools
+// }
+// add_action( 'admin_menu', 'remove_menus' );
 
 
 // Register scripts and styles

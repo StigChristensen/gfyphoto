@@ -6,14 +6,15 @@ var gulp = require('gulp'),
 		sass = require('gulp-sass'),
 		uglify = require('gulp-uglify'),
 		cssmin = require('gulp-cssmin'),
-		watch = require('gulp-watch'),
-		livereload = require('gulp-livereload');
+		watch = require('gulp-watch');
 
 
 // dependencies task
 gulp.task('vendor', function() {
 	return gulp.src([
     	'src/bower_components/velocity/velocity.min.js',
+      'src/bower_components/undercore/underscore-min.js',
+      'src/bower_components/undercore/underscore-min.map'
     ])
     .pipe(concat('lib.js'))
     .pipe(gulp.dest('public_html/wp-content/themes/gfy/js/'));
@@ -26,12 +27,11 @@ gulp.task('scripts', function() {
     .pipe(jshint.reporter(stylish))
     .pipe(concat('main.js'))
     .pipe(gulp.dest('public_html/wp-content/themes/gfy/js/'))
-    // .pipe(uglify())
-    // .pipe(rename({
-    //   suffix: '.min'
-    // }))
-    // .pipe(gulp.dest('public_html/wp-content/themes/gfy/js/'))
-    // .pipe(livereload());
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('public_html/wp-content/themes/gfy/js/'));
 });
 
 
@@ -40,12 +40,11 @@ gulp.task('styles', function() {
   return gulp.src('src/sass/**/*.scss')
     .pipe(sass())
     .pipe(gulp.dest('public_html/wp-content/themes/gfy/css/'))
-    // .pipe(cssmin())
-    // .pipe(rename({
-    //   suffix: '.min'
-    // }))
-    // .pipe(gulp.dest('public_html/wp-content/themes/gfy/css/'))
-    // .pipe(livereload());
+    .pipe(cssmin())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('public_html/wp-content/themes/gfy/css/'));
 });
 
 gulp.task('copy', function() {

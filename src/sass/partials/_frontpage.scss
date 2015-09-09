@@ -2,23 +2,27 @@
   position: relative;
   top: 0;
   left: 0;
+  width: 100%;
+  height: auto;
+  float: left;
   text-align: center;
+  padding: 0 0 10px 0;
 
   .bar {
     background-color: $w;
     position: fixed;
-    z-index: 2000;
+    z-index: 20000;
   }
 
   .bar.top {
-    height: 30px;
+    height: 20px;
     width: 100%;
     top: 0;
     left: 0;
   }
 
   .bar.bottom {
-    height: 30px;
+    height: 20px;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -26,51 +30,95 @@
 
   .bar.right {
     height: 100%;
-    width: 30px;
+    width: 20px;
     top: 0;
     right: 0;
   }
 
   .bar.left {
     height: 100%;
-    width: 30px;
+    width: 20px;
     top: 0;
     left: 0;
   }
 
-  .img-container {
-    top: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-    cursor: pointer;
-    @include trans(0.6s);
-
-    img {
-      height: 100%;
-      width: auto;
-    }
-  }
-
-  .img-container.wide {
+  .overlay {
+    background-color: rgba(0,0,0,0.85);
+    position: fixed;
     width: 100%;
-    z-index: 1000;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    display: none;
+    opacity: 0;
   }
 
   .info {
-    position:fixed;
-    width: 400px;
-    height: 160px;
-    bottom: 100px;
-    right: 100px;
-    background-color: $w;
-    padding: 30px;
+    width: auto;
+    height: 20px;
+    margin: 50px auto 20px auto;
     text-align: center;
-    z-index: 2000;
-    opacity: 0.8;
-    box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.35);
-
   }
 
+  .images-cont {
+    width: 1000px;
+    height: auto;
+    text-align: center;
+    margin: 30px auto 0 auto;
+    padding: 0 0 100px 0;
+    position: relative;
+
+    .img-container {
+      display: none;
+      width: 200px;
+      height: 200px;
+      min-width: 200px;
+      overflow: hidden;
+      position:initial;
+      float: left;
+      opacity: 0;
+      z-index: 1;
+      cursor: pointer;
+
+      img.child {
+        height: 150%;
+        width: auto;
+        transform: translate(-5px, -30px);
+        @include trans(1.5s);
+      }
+    }
+
+    .img-container.large {
+      width: 1077px;
+      height: 700px;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      z-index: 2000;
+      cursor: pointer;
+
+      img.child {
+        height: 100%;
+        width: auto;
+        transform: translate(0,0);
+      }
+
+      .threed-btn {
+        position: absolute;
+        right: 30px;
+        top: 350px;
+        padding: 10px;
+
+
+        h3.threetxt {
+
+        }
+      }
+    }
+  }
 
 }
