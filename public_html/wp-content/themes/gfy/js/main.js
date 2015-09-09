@@ -26,8 +26,6 @@ jQuery(document).ready(function($) {
                 winWidth = $(window).width();
                 elementWidth = $(elem).width();
 
-                console.log(elementWidth);
-
             if ( isNaN(top) ) {
               top = -80;
             } else {
@@ -35,6 +33,7 @@ jQuery(document).ready(function($) {
             }
 
             if ( !$(elem).hasClass('large') ) {
+
               $(elem).velocity({
                 'top': top + 'px',
                 'height': height,
@@ -46,12 +45,15 @@ jQuery(document).ready(function($) {
 
               $(elem).addClass('large');
 
+              setTimeout(treD(elem, height, top), 900);
             } else {
+
               $(elem).velocity({
                 'height': 200,
               }, {duration: 600, easing: 'easeInOutSine'});
 
               $(elem).removeClass('large');
+              hideTreD(elem);
 
               $('.overlay').velocity({
                 'opacity': 0
@@ -59,6 +61,72 @@ jQuery(document).ready(function($) {
             }
           });
         });
+
+        function treD(elem, height, top) {
+          var child = $(elem).find('img.child'),
+              btn = $('body').find('.threed-btn'),
+              treDimg = $(elem).find('img.threed-img');
+              btnPos = ((height/6) + top);
+
+          if ( $(treDimg).length ) {
+            $(btn).velocity({
+              'opacity': 1,
+              'top': btnPos
+            }, {duration: 1000, easing: 'easeInOutSine', display: 'block'});
+          }
+
+          $(btn).on('click', function() {
+
+            if ( !$(child).hasClass('tre-d') ) {
+
+              $(child).velocity({
+                'opacity': 0
+              }, {duration: 200, easing: 'easeInOutSine', display: 'none'});
+
+              $(treDimg).velocity({
+                'opacity': 1
+              }, {duration: 200, easing: 'easeInOutSine', display: 'block'});
+
+              $(child).addClass('tre-d');
+
+            } else {
+
+              $(child).removeClass('tre-d');
+
+              $(treDimg).velocity({
+                'opacity': 0
+              }, {duration: 200, easing: 'easeInOutSine', display: 'none'});
+
+              $(child).velocity({
+                'opacity': 1
+              }, {duration: 200, easing: 'easeInOutSine', display: 'block'});
+            }
+          });
+        }
+
+        function hideTreD(elem) {
+          var btn = $('body').find('.threed-btn');
+          var child = $(elem).find('img.child'),
+              btn = $('body').find('.threed-btn'),
+              treDimg = $(elem).find('img.threed-img');
+
+          $(btn).velocity({
+            'opacity': 0,
+            'top': -500
+          }, {duration: 1000, easing: 'easeInOutSine', display: 'none'});
+
+          $(treDimg).velocity({
+            'opacity': 0
+          }, {duration: 500, easing: 'easeInOutSine', display: 'none'});
+
+          $(child).velocity({
+            'opacity': 1
+          }, {duration: 500, easing: 'easeInOutSine', display: 'block'});
+
+          $('.overlay').velocity({
+            'opacity': 0
+          }, {duration: 1500, easing: 'easeInOutSine', display: 'none'});
+        }
       };
 
       animateIn();

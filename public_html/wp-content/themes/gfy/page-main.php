@@ -21,7 +21,10 @@
 
 	<div class="overlay"></div>
 
+	<div class="threed-btn"><h3 class="threetxt">3D</h3></div>
+
 	<div class="images-cont">
+
 	<?php
 	$posts = get_posts(array(
 		'posts_per_page'	=> -1,
@@ -38,10 +41,7 @@
 			<img class="child" src="<?php the_field('billede'); ?>">
 
 			<?php if ( get_field('3d') && get_field('3d_billede') ) { ?>
-				<div class="threed-btn"><h3 class="threetxt">3D</h3></div>
-				<div class="img-3d">
-					<img src="<?php the_field('3d_billede'); ?>">
-				</div>
+				<img class="threed-img" src="<?php the_field('3d_billede'); ?>">
 			<?php } ?>
 		</div>
 

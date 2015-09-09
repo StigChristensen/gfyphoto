@@ -61,6 +61,27 @@
     text-align: center;
   }
 
+  .threed-btn {
+    position: absolute;
+    right: 50px;
+    top: 350px;
+    opacity: 0;
+    display: none;
+    z-index: 5000;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+    @include trans(0.5s);
+
+    h3.threetxt {
+      padding: 7px 10px 8px 12px;
+    }
+  }
+
+  .threed-btn:hover {
+    background-color: rgba(72, 97, 119, 1);
+    color: #FFF;
+  }
+
   .images-cont {
     width: 1000px;
     height: auto;
@@ -84,7 +105,17 @@
       img.child {
         height: 150%;
         width: auto;
+        opacity: 1;
         transform: translate(-5px, -30px);
+        @include trans(1.5s);
+      }
+
+      img.threed-img {
+        height: 100%;
+        width: auto;
+        transform: translate(0,0);
+        opacity: 0;
+        display: none;
         @include trans(1.5s);
       }
     }
@@ -93,7 +124,7 @@
       width: 1077px;
       height: 700px;
       position: absolute;
-      margin-left: auto;
+      margin-left: -30px;
       margin-right: auto;
       left: 0;
       right: 0;
@@ -105,18 +136,14 @@
         height: 100%;
         width: auto;
         transform: translate(0,0);
+        opacity: 1;
       }
 
-      .threed-btn {
-        position: absolute;
-        right: 30px;
-        top: 350px;
-        padding: 10px;
-
-
-        h3.threetxt {
-
-        }
+      img.threed-img {
+        height: 100%;
+        width: auto;
+        transform: translate(0,0);
+        opacity: 0;
       }
     }
   }
