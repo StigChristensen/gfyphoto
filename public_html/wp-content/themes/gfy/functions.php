@@ -35,11 +35,11 @@ add_action( 'after_setup_theme', 'wd_setup' );
 // Register scripts and styles
 function reg_scripts() {
 	wp_enqueue_script( 'lib', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0.0', true );
-	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/main.js', array( 'lib' ), '1.0.0', true );
+	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/main.min.js', array( 'lib' ), '1.0.0', true );
 
   wp_localize_script('app', 'site', array( 'theme_path' => get_stylesheet_directory_uri(), 'ajax_url' => admin_url( 'admin-ajax.php' ) ));
 
-	wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.css', array(), '1.0.0' );
+	wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.min.css', array(), '1.0.0' );
 }
 add_action( 'wp_enqueue_scripts', 'reg_scripts' );
 

@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
       var animateIn = function() {
         var img = $('.img-container');
         $(img).each(function(i, elem) {
-          var duration = 100*i;
+          var duration = 400*i;
 
           $(elem).velocity({
             'opacity': 1
